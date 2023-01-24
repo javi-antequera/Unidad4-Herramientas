@@ -3,6 +3,9 @@
     include_once "Tarta.php";
     include_once "Bollo.php";
     include_once "Chocolate.php";
+
+    use util\ClienteNoEncontradoException;
+    use util\DulceNoEncontradoException;
     class Pasteleria{
     private $nombre;
     private $productos = array();
@@ -81,7 +84,7 @@
                 }
             }
             if (!$existeCliente) {
-                echo "Cliente no encontrado";
+                throw new ClienteNoEncontradoException("Cliente no encontrado");
             }
             foreach ($this->getProductos() as $dulce) {
                 if ($dulce->getNumero() == $numeroDulce) {
@@ -95,7 +98,7 @@
                 }
             }
             if (!$existeDulce) {
-                echo "Este dulce no existe";
+                throw new DulceNoEncontradoException("Este dulce no existe");
             }
     }
     

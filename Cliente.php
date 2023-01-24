@@ -1,4 +1,5 @@
 <?php
+    use util\DulceNoCompradoException;
 class Cliente
 {
     public $nombre;
@@ -58,7 +59,7 @@ class Cliente
             if ($this->listaDeDulces($d)) {
                 echo $this->getNombre()." comparte su opinión acerca de ".$d->getNombre().": $c";
             } else {
-                echo "Este producto no se puede valorar ya que no ha sido comprado";
+                throw new DulceNoCompradoException("Este producto no se puede valorar ya que no ha sido comprado");
             }
     }
     public function listarPedidos()
