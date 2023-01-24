@@ -1,4 +1,8 @@
-<?php 
+<?php
+    include_once "Cliente.php";
+    include_once "Tarta.php";
+    include_once "Bollo.php";
+    include_once "Chocolate.php";
     class Pasteleria{
     private $nombre;
     private $productos = array();
